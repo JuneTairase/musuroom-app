@@ -126,10 +126,10 @@ if st.button('🔍 判定する', use_container_width=True):
     probability = model.predict_proba(input_df)[0]
 
     if prediction[0] == 1:
-        st.error(f'⚠️ このきのこは【毒あり】の可能性があります！食べないでください！')
-        st.progress(probability[1], text=f'毒である確率：{probability[1]*100:.1f}%')
-        st.progress(probability[0], text=f'食用である確率：{probability[0]*100:.1f}%')
+        st.error(f'⚠️ このきのこは毒がある可能性があります！食べない方が良いです')
+        st.progress(probability[1], text=f'毒きのこの確率：{probability[1]*100:.1f}%')
+        st.progress(probability[0], text=f'食用きのこの確率：{probability[0]*100:.1f}%')
     else:
-        st.success(f'✅ このきのこは【食用】の可能性があります')
-        st.progress(probability[0], text=f'食用である確率：{probability[0]*100:.1f}%')
-        st.progress(probability[1], text=f'毒である確率：{probability[1]*100:.1f}%')
+        st.success(f'✅ このきのこは食べても大丈夫そうですが、最後は自己責任でお願いします')
+        st.progress(probability[0], text=f'食用きのこの確率：{probability[0]*100:.1f}%')
+        st.progress(probability[1], text=f'毒きのこの確率：{probability[1]*100:.1f}%')
