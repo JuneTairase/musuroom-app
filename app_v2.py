@@ -90,17 +90,17 @@ with col5:
     user_input['stalk-color-below-ring'] = options['stalk-color-below-ring'][jp]
 
 st.subheader('つばの特徴')
-col1, col2, col3, col4 = st.columns(4)
+# veil-typeは選択肢が1種類のみのため固定値を設定
+user_input['veil-type'] = 'p'
+
+col1, col2, col3 = st.columns(3)
 with col1:
-    jp = st.selectbox('つばの種類', list(options['veil-type'].keys()))
-    user_input['veil-type'] = options['veil-type'][jp]
-with col2:
     jp = st.selectbox('つばの色', list(options['veil-color'].keys()))
     user_input['veil-color'] = options['veil-color'][jp]
-with col3:
+with col2:
     jp = st.selectbox('つばの数', list(options['ring-number'].keys()))
     user_input['ring-number'] = options['ring-number'][jp]
-with col4:
+with col3:
     jp = st.selectbox('つばの形', list(options['ring-type'].keys()))
     user_input['ring-type'] = options['ring-type'][jp]
 
