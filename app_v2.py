@@ -5,8 +5,8 @@ import pandas as pd
 model = joblib.load('mushroom_model.pkl')
 encoders = joblib.load('encoders.pkl')
 
-st.title('🍄 きのこ毒判定アプリ')
-st.caption('きのこの特徴を選んで「判定する」ボタンを押してください')
+st.title('きのこ毒判定アプリ')
+st.caption('きのこの特徴を選んで「判定する」ボタンを押すと毒か食用かが％で表示されます。')
 st.divider()
 
 options = {
@@ -35,7 +35,7 @@ options = {
 
 user_input = {}
 
-st.subheader('🍄 傘の特徴')
+st.subheader('傘の特徴')
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     jp = st.selectbox('傘の形', list(options['cap-shape'].keys()))
@@ -50,13 +50,13 @@ with col4:
     jp = st.selectbox('傷はあるか', list(options['bruises'].keys()))
     user_input['bruises'] = options['bruises'][jp]
 
-st.subheader('👃 においの特徴')
+st.subheader('においの特徴')
 col1, col2 = st.columns([1, 3])
 with col1:
     jp = st.selectbox('におい', list(options['odor'].keys()))
     user_input['odor'] = options['odor'][jp]
 
-st.subheader('🔍 ひだの特徴')
+st.subheader('ひだの特徴')
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     jp = st.selectbox('ひだの付き方', list(options['gill-attachment'].keys()))
@@ -71,7 +71,7 @@ with col4:
     jp = st.selectbox('ひだの色', list(options['gill-color'].keys()))
     user_input['gill-color'] = options['gill-color'][jp]
 
-st.subheader('🌿 茎の特徴')
+st.subheader('茎の特徴')
 col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
     jp = st.selectbox('茎の形', list(options['stalk-shape'].keys()))
@@ -89,7 +89,7 @@ with col5:
     jp = st.selectbox('つばより下の色', list(options['stalk-color-below-ring'].keys()))
     user_input['stalk-color-below-ring'] = options['stalk-color-below-ring'][jp]
 
-st.subheader('💍 つばの特徴')
+st.subheader('つばの特徴')
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     jp = st.selectbox('つばの種類', list(options['veil-type'].keys()))
@@ -104,7 +104,7 @@ with col4:
     jp = st.selectbox('つばの形', list(options['ring-type'].keys()))
     user_input['ring-type'] = options['ring-type'][jp]
 
-st.subheader('🌲 その他の特徴')
+st.subheader('その他の特徴')
 col1, col2, col3 = st.columns(3)
 with col1:
     jp = st.selectbox('胞子紋の色', list(options['spore-print-color'].keys()))
